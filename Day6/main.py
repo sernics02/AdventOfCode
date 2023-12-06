@@ -5,19 +5,14 @@ def calculate(ms: int, record: int):
   possibilities = 0
   is_wining = False
   i = 0
+  # Optimizacion, solo hace falta encontrar un numero del rango
+  # ya que es cuadrático
   while (not is_wining):
     i += 1
     if i * (ms - i) >= record:
       is_wining = True
   lowest = i
-  i = ms
-  is_wining = False
-  while (not is_wining):
-    i -= 1
-    if i * (ms - i) >= record:
-      is_wining = True
-  highest = i
-  return ms - lowest - (ms - highest) + 1
+  return ms - lowest - lowest + 1
 
 def race():
   time = data["Time"]
